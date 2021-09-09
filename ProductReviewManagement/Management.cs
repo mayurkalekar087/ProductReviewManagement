@@ -58,6 +58,18 @@ namespace ProductReviewManagement
             }
             
         }
+        //UC6
+        public void SkipTopFive(List<ProductReview> listProductReview)
+        {
+            var recordedData = (from list in listProductReview
+                           orderby list.Rating descending
+                           select list);
+            foreach (var element in recordedData.Skip(5))
+            {
+                Console.WriteLine(element.ToString());
+            }
+            
+        }
     }
 }
 
